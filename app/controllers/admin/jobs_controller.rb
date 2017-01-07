@@ -1,6 +1,7 @@
 class Admin::JobsController < ApplicationController
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :hide, :publish]
   before_filter :require_is_admin
+  layout "admin"
 
   def index
     @jobs = Job.all
@@ -36,6 +37,20 @@ class Admin::JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.destroy
     redirect_to admin_jobs_path, alert: "Delete success"
+  end
+
+  def hide
+    @job = Job.find(params[:id])
+    @job.is_hidden = true
+    @job.save!
+    redirect_to admin_jobs_path, notice: "Hide job success"
+  end
+
+  def publish
+    @job = Job.find(params[:id])
+    @job.is_hidden = false
+    @job.save!
+    redirect_to admin_jobs_path, notice: "Publish job success"
   end
 
   private
