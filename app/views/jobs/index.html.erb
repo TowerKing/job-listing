@@ -23,6 +23,7 @@
         <th>薪资下限</th>
         <th>薪资上限</th>
         <th>刊登时间</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -32,6 +33,7 @@
           <td><%= job.wage_lower_bound %></td>
           <td><%= job.wage_upper_bound %></td>
           <td><%= job.created_at %></td>
+          <td><%= link_to("投递履历", "", class: "btn btn-xs btn-primary")%></td>
         </tr>
       <% end %>
     </tbody>
