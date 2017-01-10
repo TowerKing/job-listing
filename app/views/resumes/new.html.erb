@@ -1,0 +1,8 @@
+<h2>撰写简历</h2>
+<%= simple_form_for [@job, @resume] do |f| %>
+  <div class="form-group">
+    <%= f.input :content, input_html: { class: "form-control" } %>
+  </div>
+
+  <%= f.submit "Submit", :class => "btn btn-primary", data: { disable_with: "Submitting..." } %>
+<% end %>
