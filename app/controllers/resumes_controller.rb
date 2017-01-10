@@ -12,7 +12,7 @@ class ResumesController < ApplicationController
     @resume.job = @job
     @resume.user = current_user
     if @resume.save
-      redirect_to jobs_path, notice: "投递成功"
+      redirect_to job_path(@job), notice: "#{@resume.content} 投递成功"
     else
       render :new
     end
@@ -21,6 +21,6 @@ class ResumesController < ApplicationController
   private
 
   def resume_params
-    params.require(:resume).permit(:user_id, :job_id, :content)
+    params.require(:resume).permit(:user_id, :job_id, :content, :attachment)
   end
 end
