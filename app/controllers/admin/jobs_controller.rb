@@ -39,6 +39,11 @@ class Admin::JobsController < ApplicationController
     redirect_to admin_jobs_path, alert: "Delete success"
   end
 
+  def show
+    @job = Job.find(params[:id])
+    @resumes = @job.resumes
+  end
+
   def hide
     @job = Job.find(params[:id])
     @job.hide!
