@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
+  layout 'welcome'
   def index
-    flash[:notice] = "Hello, Mr. first week"
   end
 end
