@@ -1,8 +1,19 @@
-<h2>撰写简历</h2>
-<%= simple_form_for [@job, @resume] do |f| %>
-  <div class="form-group">
-    <%= f.input :content, input_html: { class: "form-control" } %>
-    <%= f.input :attachment %>
+<div class="container" style="margin-top: 85px;">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      撰写简历
+    </div>
+
+    <%= simple_form_for [@job, @resume] do |f| %>
+      <div class="panel-body">
+        <div class="form-group">
+          <%= f.input :content, input_html: { class: "form-control", style: "height: 400px;" } %>
+          <%= f.input :attachment %>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <%= f.submit "Submit", :class => "btn btn-success", data: { disable_with: "Submitting..." } %>
+      </div>
+    <% end %>
   </div>
-  <%= f.submit "Submit", :class => "btn btn-primary", data: { disable_with: "Submitting..." } %>
-<% end %>
+</div>

@@ -1,14 +1,29 @@
-
-<div>
-  <h2><%= @job.title %></h2>
-  <p>
-    职缺描述：<%= @job.description %> <br />
-    薪资上限：<%= @job.wage_upper_bound %> <br />
-    薪资下限：<%= @job.wage_lower_bound %> <br />
-    联系方式：<%= @job.contact_email %>
-  </p>
-</div>
-
-<div class="group">
-  <%= link_to("投递履历", new_job_resume_path(@job, @resume), :class => "btn btn-primary pull-left") %>
+<div class="container" style="margin-top: 85px;">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      应征职位：<%= @job.title %>
+    </div>
+    <div class="panel-body">
+      <div class="well">
+        <div class="wage">
+          $<%= @job.wage_lower_bound %>-<%= @job.wage_upper_bound %>
+        </div>
+        <span style="font-size: 16px; color: grey;">
+          <%= @job.created_at.strftime("%Y-%m-%d %H:%M:%S") %>发布
+        </span>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          职位描述
+        </div>
+        <div class="panel-body">
+          <%= @job.description %>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <%= link_to("投递履历", new_job_resume_path(@job, @resume), :class => "btn btn-success") %>
+      <%= mail_to( @job.contact_email, "联系Ta" , :class => "btn btn-default") %>
+    </div>
+  </div>
 </div>

@@ -199,3 +199,41 @@ img {
     color: #8A8A8A;
     font-size: 16px;
 }
+
+.wage {
+  font-size: 26px;
+  font-weight: bolder;
+  color: #e85253;
+  margin: 4px 0;
+}
+
+.position-title {
+  font-size: 22px;
+  font-weight: bolder;
+  color: black;
+  margin: 8px 0;
+}
+
+.position-panel {
+  border: 1px solid lightgrey;
+  padding: 16px;
+  margin-bottom: 8px;
+}
+
+.avater {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.banner_jobs {
+  position: relative;
+  height: 250px;
+  margin-bottom: 16px;
+  background-image: url('http://www.globemploy.com/blog/wp-content/themes/twentyeleven/images/banner.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid lightgrey;
+}
