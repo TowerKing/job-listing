@@ -1,32 +1,50 @@
-<h2 class="page-header"><%= @job.title %></h2>
-<div class="table-responsive">
-  <p><%= @job.description %></p>
+<div class="panel panel-primary" style="margin-top: 55px;">
+  <div class="panel-heading">
+    应聘职位：<%= @job.title %>
+  </div>
+  <div class="panel-body">
+    <div class="well">
+      <div style="padding: 4px 0;">
+        <strong>职位描述：</strong>
+      </div>
+      <%= @job.description %>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>内容</th>
+            <th>下载链接</th>
+            <th>投递者</th>
+            <th>投递时间</th>
+          </tr>
+        </thead>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>内容</th>
-        <th>下载链接</th>
-        <th>投递者</th>
-        <th>投递时间</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @resumes.each do |resume| %>
-        <tr>
-          <td><%= resume.content %></td>
-          <td>
-            <% if resume.attachment_url %>
-              <%= link_to("Download Resume", resume.attachment_url) %>
-            <% else %>
-              无附件
+        <tbody>
+          <% if @resumes.count > 0 %>
+            <% @resumes.each do |resume| %>
+              <tr>
+                <td><%= resume.content %></td>
+                <td>
+                  <% if resume.attachment_url %>
+                    <%= link_to("点击下载", resume.attachment_url, class: "btn btn-danger btn-sm") %>
+                  <% else %>
+                    无附件
+                  <% end %>
+                </td>
+                <td><%= resume.user.email %></td>
+                <td><%= resume.created_at %></td>
+              </tr>
             <% end %>
-          </td>
-          <td><%= resume.user.email %></td>
-          <td><%= resume.created_at %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+          <% else %>
+            <tr>
+              <td colspan="4" style="text-align: center; padding: 24px;">
+                <strong>暂时无人投递履历</strong>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
