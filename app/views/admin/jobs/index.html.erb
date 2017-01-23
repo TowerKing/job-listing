@@ -1,4 +1,4 @@
-<h1 class="page-header">Dashboard</h1>
+<h1 class="page-header" style="margin-top: 55px;">Dashboard</h1>
 
 <div class="table-responsive">
   <div class="group">
@@ -10,11 +10,10 @@
       <tr>
         <th>职缺名称</th>
         <th>收到履历数量</th>
-        <th>职缺描述</th>
         <th>薪资上限</th>
         <th>薪资下限</th>
-        <th>联系方式</th>
-        <th>创建日期</th>
+        <th>管理选项</th>
+        <th>刊登时间</th>
       </tr>
     </thead>
     <tbody>
@@ -26,25 +25,23 @@
             <% else %>
               <%= icon('globe') %>
             <% end %>
-            <%= link_to(job.title, admin_job_path(job)) %>
+            <%= link_to(job.title, job_path(job)) %>
           </td>
           <td><%= link_to job.resumes.count, admin_job_resumes_path(job) %></td>
-          <td><%= job.description %></td>
           <td><%= job.wage_upper_bound %></td>
           <td><%= job.wage_lower_bound %></td>
-          <td><%= job.contact_email %></td>
-          <td><%= job.created_at %></td>
           <td>
-            <%= link_to("Edit", edit_admin_job_path(job))%>
+            <%= link_to("Edit", edit_admin_job_path(job), class: "btn btn-info btn-sm")%>
             |
-            <%= link_to("Delete", admin_job_path(job), method: :delete, data:{confirm: "Are you sure?"}) %>
+            <%= link_to("Delete", admin_job_path(job), method: :delete, data:{confirm: "Are you sure?"}, class: "btn btn-danger btn-sm") %>
             |
             <% if job.is_hidden %>
-              <%= link_to("Publish", publish_admin_job_path(job), method: :post,  class: "btn btn-sm btn-default") %>
+              <%= link_to("Publish", publish_admin_job_path(job), method: :post,  class: "btn btn-sm btn-success") %>
             <% else %>
-              <%= link_to("Hide", hide_admin_job_path(job), :method => :post, class: "btn btn-sm btn-default") %>
+              <%= link_to("Hide", hide_admin_job_path(job), :method => :post, class: "btn btn-sm btn-warning") %>
             <% end %>
           </td>
+          <td><%= job.created_at %></td>
         </tr>
       <% end %>
     </tbody>
