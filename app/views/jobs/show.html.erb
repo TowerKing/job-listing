@@ -9,7 +9,7 @@
           $<%= @job.wage_lower_bound %>-<%= @job.wage_upper_bound %>
         </div>
         <span style="font-size: 16px; color: grey;">
-          <%= @job.created_at.strftime("%Y-%m-%d %H:%M:%S") %>发布
+          <%= format_created_at(@job) %>发布
         </span>
       </div>
       <div class="panel panel-info">

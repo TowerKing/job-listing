@@ -2,7 +2,7 @@
 
 <div class="table-responsive">
   <div class="group">
-    <%= link_to("Add a job", new_admin_job_path, :class => "btn btn-primary pull-right") %>
+    <%= link_to("Add a job", new_admin_job_path, :class => "btn btn-default pull-right") %>
   </div>
 
   <table class="table table-striped">
@@ -41,7 +41,7 @@
               <%= link_to("Hide", hide_admin_job_path(job), :method => :post, class: "btn btn-sm btn-warning") %>
             <% end %>
           </td>
-          <td><%= job.created_at %></td>
+          <td><%= format_created_at(job) %></td>
         </tr>
       <% end %>
     </tbody>
