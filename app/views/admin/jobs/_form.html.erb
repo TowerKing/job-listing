@@ -1,11 +1,15 @@
 <%= simple_form_for [:admin, @job] do |f| %>
-  <div class="form-group">
-    <%= f.input :title, input_html: {class: "form-control"} %>
-    <%= f.input :description, input_html: {class: "form-control"} %>
-    <%= f.input :wage_upper_bound, input_html: {class: "form-control"} %>
-    <%= f.input :wage_lower_bound, input_html: {class: "form-control"} %>
-    <%= f.input :contact_email, input_html: {class: "form-control"} %>
-    <%= f.input :is_hidden, :as => :boolean %>
+  <div class="panel-body">
+    <div class="form-group">
+      <%= f.input :title, input_html: {class: "form-control"} %>
+      <%= f.input :description, input_html: {class: "form-control"} %>
+      <%= f.input :wage_upper_bound, input_html: {class: "form-control"} %>
+      <%= f.input :wage_lower_bound, input_html: {class: "form-control"} %>
+      <%= f.input :contact_email, input_html: {class: "form-control"} %>
+      <%= f.input :is_hidden, :as => :boolean %>
+    </div>
   </div>
-  <%= f.submit "Submit", :class => "btn, btn-primary", data: {disable_with: "Submitting...."}  %>
+  <div class="panel-footer">
+    <%= f.submit "Submit", :class => "btn btn-success", data: {disable_with: "Submitting...."}  %>
+  </div>
 <% end %>
